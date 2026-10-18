@@ -18,7 +18,7 @@ const experience = [
     role: 'IT Department Intern',
     org: 'LDA (Lahore Development Authority)',
     dept: 'IT Department',
-    period: '2026 · 3 months',
+    period: '2025 · 3 months',
     desc: 'Supported IT operations and digital infrastructure in a government enterprise environment.',
   },
 ]
