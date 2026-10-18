@@ -48,13 +48,6 @@ export default function HeroText() {
 
       {/* Contact micro-info */}
       <div className="hero-contact-meta">
-        <a href="tel:+923154486062" className="meta-link">
-          <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-            <path d="M2 2.5a1 1 0 011-1h1.28a.5.5 0 01.48.36l.56 2a.5.5 0 01-.14.5L4 5.5a7 7 0 003.5 3.5l1.14-1.2a.5.5 0 01.5-.14l2 .56a.5.5 0 01.36.48V9.5a1 1 0 01-1 1A8.5 8.5 0 012 2.5z" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-          03154486062
-        </a>
-        <span className="meta-dot">·</span>
         <a href="mailto:a.siddiqua.nadeem@gmail.com" className="meta-link">
           <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
             <rect x="1" y="2.5" width="10" height="7" rx="1" stroke="currentColor" strokeWidth="1"/>
