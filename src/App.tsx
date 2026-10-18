@@ -149,7 +149,10 @@ export default function App() {
         if (dist < deadzone) {
           imgToDraw = centerImgRef.current
         } else {
-          const normalized = wrapAngle(newSmooth) / (2 * Math.PI)
+          // Invert the angular mapping so horizontal cursor movement matches head rotation direction:
+          // Moving cursor right -> character turns and looks right
+          // Moving cursor left -> character turns and looks left
+          const normalized = (2 * Math.PI - wrapAngle(newSmooth)) / (2 * Math.PI)
           const frameIdx = Math.round(normalized * TOTAL_FRAMES) % TOTAL_FRAMES
           imgToDraw = framesRef.current[frameIdx]
         }
