@@ -149,14 +149,17 @@ export default function App() {
         if (dist < deadzone) {
           imgToDraw = centerImgRef.current
         } else {
-          // Calibrated angular mapping for character look-around frames:
-          // - Cursor UP (dy < 0) -> frames 6-10 (head tilted up, eyes looking up)
-          // - Cursor LEFT (dx < 0) -> frames 22-26 (head turned left, eyes looking left)
-          // - Cursor DOWN (dy > 0) -> frames 38-42 (head tilted down, eyes looking down)
-          // - Cursor RIGHT (dx > 0) -> frames 54-58 (head turned right, eyes looking right)
-          const angleOffset = (56 / TOTAL_FRAMES) * 2 * Math.PI
-          const targetAngle = wrapAngle(angleOffset - newSmooth)
-          const normalized = targetAngle / (2 * Math.PI)
+          // Calibrated angular mapping for character look-around frames (screen viewer perspective):
+          // - Cursor UP (dy < 0) -> frame 8 (head tilted up, eyes looking up)
+          // - Cursor UP-RIGHT -> frame 16 (eyes looking up-right)
+          // - Cursor RIGHT (dx > 0) -> frame 24 (head turned right, eyes looking right)
+          // - Cursor DOWN-RIGHT -> frame 32 (eyes looking down-right)
+          // - Cursor DOWN (dy > 0) -> frame 40 (head tilted down, eyes looking down)
+          // - Cursor DOWN-LEFT -> frame 48 (eyes looking down-left)
+          // - Cursor LEFT (dx < 0) -> frame 56 (head turned left, eyes looking left)
+          // - Cursor UP-LEFT -> frame 0 (eyes looking up-left)
+          const angleOffset = (24 / TOTAL_FRAMES) * 2 * Math.PI
+          const normalized = wrapAngle(newSmooth + angleOffset) / (2 * Math.PI)
           const frameIdx = Math.round(normalized * TOTAL_FRAMES) % TOTAL_FRAMES
           imgToDraw = framesRef.current[frameIdx]
         }
