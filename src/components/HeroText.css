@@ -1,15 +1,15 @@
 /* ─── Hero Text Section ──────────────────────────────────────────────── */
 .hero-text {
   position: absolute;
-  bottom: 10vh;
+  bottom: 8vh;
   left: 6vw;
-  max-width: 340px;
+  max-width: 360px;
   z-index: 20;
   pointer-events: auto;
 
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 
   /* Entrance animation */
   animation: heroEntrance 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
@@ -44,14 +44,14 @@
 
 .hero-name {
   font-family: 'Dancing Script', cursive;
-  font-size: clamp(44px, 5.5vw, 72px);
+  font-size: clamp(40px, 5.5vw, 72px);
   font-weight: 700;
   color: #ffffff;
   line-height: 1.05;
   letter-spacing: -0.01em;
   text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.25),
-    0 4px 32px rgba(0, 0, 0, 0.12);
+    0 2px 12px rgba(0, 0, 0, 0.35),
+    0 4px 32px rgba(0, 0, 0, 0.2);
 }
 
 /* ─── Bio ──────────────────────────────────────────────────────────── */
@@ -60,14 +60,15 @@
   font-size: 13.5px;
   font-weight: 300;
   line-height: 1.72;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.85);
   letter-spacing: 0.01em;
-  max-width: 320px;
+  max-width: 330px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
 .hero-bio strong {
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 1);
 }
 
 /* ─── Buttons ──────────────────────────────────────────────────────── */
@@ -93,7 +94,6 @@
     transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.22s ease,
     background 0.22s ease;
-  cursor: none;
 }
 
 .btn:hover {
@@ -105,7 +105,7 @@
   background: #ffffff;
   color: #5a4035;
   box-shadow:
-    0 4px 20px rgba(0, 0, 0, 0.18),
+    0 4px 20px rgba(0, 0, 0, 0.25),
     0 1px 0 rgba(255, 255, 255, 0.4) inset;
 }
 
@@ -118,16 +118,16 @@
 
 /* Secondary: frosted glass */
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.18);
   border-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
 }
@@ -147,33 +147,62 @@
   font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   letter-spacing: 0.03em;
   transition: color 0.2s ease;
-  cursor: none;
 }
 
 .meta-link:hover {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 1);
 }
 
 .meta-dot {
-  color: rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.4);
   font-size: 14px;
   line-height: 1;
 }
 
-/* ─── Responsive ───────────────────────────────────────────────────── */
-@media (max-width: 640px) {
+/* ─── Responsive (Mobile View) ─────────────────────────────────────── */
+@media (max-width: 768px) {
   .hero-text {
-    bottom: 6vh;
+    bottom: 3vh;
     left: 5vw;
     right: 5vw;
-    max-width: 100%;
+    max-width: calc(100vw - 10vw);
+    gap: 12px;
+    background: linear-gradient(to top, rgba(144, 116, 103, 0.88) 0%, rgba(144, 116, 103, 0.6) 75%, transparent 100%);
+    padding: 24px 16px 16px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .greeting-hi {
+    font-size: 11px;
   }
 
   .hero-name {
-    font-size: 40px;
+    font-size: 38px;
+  }
+
+  .hero-bio {
+    font-size: 12px;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .hero-buttons {
+    gap: 8px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .hero-contact-meta {
+    font-size: 10px;
   }
 }

@@ -48,25 +48,44 @@ export default function App() {
     let loaded = 0
     const onLoad = () => {
       loaded++
-      if (loaded >= total) { allLoadedRef.current = true; setIsLoaded(true) }
+      if (loaded >= total) {
+        allLoadedRef.current = true
+        setIsLoaded(true)
+      }
     }
     frameUrls.forEach((url, i) => {
       const img = new Image()
-      img.onload = onLoad; img.onerror = onLoad; img.src = url
+      img.onload = onLoad
+      img.onerror = onLoad
+      img.src = url
       framesRef.current[i] = img
     })
     const centerImg = new Image()
-    centerImg.onload = onLoad; centerImg.onerror = onLoad; centerImg.src = centerUrl
+    centerImg.onload = onLoad
+    centerImg.onerror = onLoad
+    centerImg.src = centerUrl
     centerImgRef.current = centerImg
   }, [])
 
-  // ─── Mouse tracking (only within hero viewport) ───────────────────────────
+  // ─── Pointer & Touch tracking (Desktop & Mobile) ───────────────────────────
   useEffect(() => {
-    const onMouseMove = (e: MouseEvent) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY }
+    const onPointerMove = (e: MouseEvent | TouchEvent) => {
+      if ('touches' in e && e.touches.length > 0) {
+        mouseRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY }
+      } else if ('clientX' in e) {
+        mouseRef.current = { x: (e as MouseEvent).clientX, y: (e as MouseEvent).clientY }
+      }
     }
-    window.addEventListener('mousemove', onMouseMove, { passive: true })
-    return () => window.removeEventListener('mousemove', onMouseMove)
+
+    window.addEventListener('mousemove', onPointerMove, { passive: true })
+    window.addEventListener('touchmove', onPointerMove, { passive: true })
+    window.addEventListener('touchstart', onPointerMove, { passive: true })
+
+    return () => {
+      window.removeEventListener('mousemove', onPointerMove)
+      window.removeEventListener('touchmove', onPointerMove)
+      window.removeEventListener('touchstart', onPointerMove)
+    }
   }, [])
 
   // ─── Canvas draw loop ─────────────────────────────────────────────────────
@@ -82,8 +101,17 @@ export default function App() {
     }
     resize()
     window.addEventListener('resize', resize)
+    window.addEventListener('orientationchange', resize)
 
-    const getFaceCenter = () => ({ x: canvas.width * 0.62, y: canvas.height * 0.40 })
+    // Adapt face coordinates based on device aspect ratio / width
+    const getFaceCenter = () => {
+      const isMobile = canvas.width < 768
+      return {
+        x: isMobile ? canvas.width * 0.50 : canvas.width * 0.62,
+        y: isMobile ? canvas.height * 0.32 : canvas.height * 0.40,
+      }
+    }
+
     const getDeadzone = () => Math.min(canvas.width, canvas.height) * 0.12
     const LERP_FACTOR = 0.26
     let lastTime = 0
@@ -126,11 +154,20 @@ export default function App() {
 
       const imgW = imgToDraw.naturalWidth
       const imgH = imgToDraw.naturalHeight
-      const scale = Math.max(canvas.width / imgW, canvas.height / imgH)
+      const isMobile = canvas.width < 768
+
+      // On mobile portrait, scale slightly higher and align so head remains fully centered and visible
+      const scale = Math.max(canvas.width / imgW, canvas.height / imgH) * (isMobile ? 1.05 : 1)
       const drawW = imgW * scale
       const drawH = imgH * scale
-      const offsetX = (canvas.width - drawW) / 2
-      const offsetY = (canvas.height - drawH) / 2
+      
+      // On mobile center horizontally and position head nicely in top-half
+      const offsetX = isMobile 
+        ? (canvas.width - drawW) / 2 - (drawW * 0.08) 
+        : (canvas.width - drawW) / 2
+      const offsetY = isMobile
+        ? Math.min(0, canvas.height * 0.05)
+        : (canvas.height - drawH) / 2
 
       ctx.globalAlpha = 1
       ctx.globalCompositeOperation = 'source-over'
@@ -138,12 +175,16 @@ export default function App() {
     }
 
     rafRef.current = requestAnimationFrame(draw)
-    return () => { cancelAnimationFrame(rafRef.current); window.removeEventListener('resize', resize) }
+    return () => {
+      cancelAnimationFrame(rafRef.current)
+      window.removeEventListener('resize', resize)
+      window.removeEventListener('orientationchange', resize)
+    }
   }, [])
 
   return (
     <>
-      {/* Custom magnetic cursor — fixed, always on top */}
+      {/* Custom magnetic cursor — fixed, desktop only */}
       <CustomCursor />
 
       {/* Fixed nav — always visible while scrolling */}
@@ -161,7 +202,7 @@ export default function App() {
           </div>
         )}
 
-        {/* Hero text — bottom-left */}
+        {/* Hero text */}
         <div className={`hero-ui ${isLoaded ? 'hero-ui-visible' : ''}`}>
           <HeroText />
         </div>

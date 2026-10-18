@@ -11,6 +11,14 @@
   will-change: transform;
 }
 
+/* Hide custom cursor on touch/mobile devices completely */
+@media (pointer: coarse), (hover: none) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+
 .cursor-visible {
   opacity: 1;
 }

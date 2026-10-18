@@ -19,7 +19,13 @@
 
 html {
   scroll-behavior: smooth;
-  cursor: none;
+}
+
+/* Hide cursor only on devices that support a fine pointer (mouse/trackpad) */
+@media (pointer: fine) {
+  html, body, * {
+    cursor: none !important;
+  }
 }
 
 body {
@@ -27,7 +33,6 @@ body {
   min-height: 100%;
   overflow-x: hidden;
   background: var(--bg-color);
-  cursor: none; /* hide default cursor */
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
