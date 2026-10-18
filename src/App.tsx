@@ -149,10 +149,14 @@ export default function App() {
         if (dist < deadzone) {
           imgToDraw = centerImgRef.current
         } else {
-          // Invert the angular mapping so horizontal cursor movement matches head rotation direction:
-          // Moving cursor right -> character turns and looks right
-          // Moving cursor left -> character turns and looks left
-          const normalized = (2 * Math.PI - wrapAngle(newSmooth)) / (2 * Math.PI)
+          // Calibrated angular mapping for character look-around frames:
+          // - Cursor UP (dy < 0) -> frames 6-10 (head tilted up, eyes looking up)
+          // - Cursor LEFT (dx < 0) -> frames 22-26 (head turned left, eyes looking left)
+          // - Cursor DOWN (dy > 0) -> frames 38-42 (head tilted down, eyes looking down)
+          // - Cursor RIGHT (dx > 0) -> frames 54-58 (head turned right, eyes looking right)
+          const angleOffset = (56 / TOTAL_FRAMES) * 2 * Math.PI
+          const targetAngle = wrapAngle(angleOffset - newSmooth)
+          const normalized = targetAngle / (2 * Math.PI)
           const frameIdx = Math.round(normalized * TOTAL_FRAMES) % TOTAL_FRAMES
           imgToDraw = framesRef.current[frameIdx]
         }
