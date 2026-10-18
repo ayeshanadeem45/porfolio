@@ -1,0 +1,48 @@
+/* ===== GLOBAL RESET & BASE ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-color: #907467;
+  --bg-warm: #8a6e62;
+  --text-light: rgba(255, 255, 255, 0.92);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-hover: rgba(255, 255, 255, 0.14);
+  --cursor-size: 10px;
+  --cursor-ring-size: 36px;
+}
+
+html {
+  scroll-behavior: smooth;
+  cursor: none;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  background: var(--bg-color);
+  cursor: none; /* hide default cursor */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+/* Scrollbar hidden */
+::-webkit-scrollbar { display: none; }
+
+/* Selection */
+::selection {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}

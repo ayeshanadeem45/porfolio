@@ -1,0 +1,75 @@
+/* ─── NavBar — fixed, always visible ──────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9000;
+  transition: top 0.3s ease;
+  pointer-events: auto;
+}
+
+.navbar-scrolled {
+  top: 16px;
+}
+
+.navbar-pill {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 12px 10px;
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 100px;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.18),
+    0 1px 0 rgba(255, 255, 255, 0.08) inset;
+}
+
+.nav-item-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 7px 20px;
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  border-radius: 50px;
+  transition: color 0.22s ease, background 0.22s ease;
+  cursor: none;
+}
+
+.nav-item:hover {
+  color: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-bracket {
+  font-size: 10px;
+  opacity: 0.45;
+  font-weight: 300;
+  letter-spacing: 0;
+  transition: opacity 0.22s ease;
+}
+
+.nav-item:hover .nav-bracket {
+  opacity: 1;
+}
+
+.nav-sep {
+  display: block;
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.16);
+  flex-shrink: 0;
+}
