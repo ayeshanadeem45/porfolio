@@ -34,7 +34,8 @@ function wrapAngle(a: number): number {
 
 export default function App() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const mouseRef = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 })
+  const mouseRef = useRef<{ x: number; y: number } | null>(null)
+  const hasInteractedRef = useRef(false)
   const smoothAngleRef = useRef(0)
   const rafRef = useRef<number>(0)
   const framesRef = useRef<HTMLImageElement[]>([])
@@ -70,6 +71,7 @@ export default function App() {
   // ─── Pointer & Touch tracking (Desktop & Mobile) ───────────────────────────
   useEffect(() => {
     const onPointerMove = (e: MouseEvent | TouchEvent) => {
+      hasInteractedRef.current = true
       if ('touches' in e && e.touches.length > 0) {
         mouseRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY }
       } else if ('clientX' in e) {
@@ -129,22 +131,28 @@ export default function App() {
       }
 
       const face = getFaceCenter()
-      const mouse = mouseRef.current
-      const dx = mouse.x - face.x
-      const dy = mouse.y - face.y
-      const dist = Math.sqrt(dx * dx + dy * dy)
-      const deadzone = getDeadzone()
-      const rawTargetAngle = Math.atan2(dy, dx)
-      const newSmooth = lerpAngle(wrapAngle(smoothAngleRef.current), wrapAngle(rawTargetAngle), LERP_FACTOR)
-      smoothAngleRef.current = newSmooth
-
       let imgToDraw: HTMLImageElement | null = null
-      if (dist < deadzone) {
+
+      if (!hasInteractedRef.current || !mouseRef.current) {
+        // Initial state: look directly straight at user
         imgToDraw = centerImgRef.current
       } else {
-        const normalized = wrapAngle(newSmooth) / (2 * Math.PI)
-        const frameIdx = Math.round(normalized * TOTAL_FRAMES) % TOTAL_FRAMES
-        imgToDraw = framesRef.current[frameIdx]
+        const mouse = mouseRef.current
+        const dx = mouse.x - face.x
+        const dy = mouse.y - face.y
+        const dist = Math.sqrt(dx * dx + dy * dy)
+        const deadzone = getDeadzone()
+        const rawTargetAngle = Math.atan2(dy, dx)
+        const newSmooth = lerpAngle(wrapAngle(smoothAngleRef.current), wrapAngle(rawTargetAngle), LERP_FACTOR)
+        smoothAngleRef.current = newSmooth
+
+        if (dist < deadzone) {
+          imgToDraw = centerImgRef.current
+        } else {
+          const normalized = wrapAngle(newSmooth) / (2 * Math.PI)
+          const frameIdx = Math.round(normalized * TOTAL_FRAMES) % TOTAL_FRAMES
+          imgToDraw = framesRef.current[frameIdx]
+        }
       }
 
       if (!imgToDraw || !imgToDraw.complete || imgToDraw.naturalWidth === 0) return
