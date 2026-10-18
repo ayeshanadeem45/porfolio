@@ -171,26 +171,28 @@ def add_section(title):
 
 # ─── 1. CENTERED HEADER ───
 story.append(Paragraph("Ayesha Siddiqua", name_style))
-story.append(Paragraph("Frontend Developer | React &amp; TypeScript | Python | Business Intelligence (Power BI)", subhead_style))
+story.append(Paragraph("Frontend Developer | React &amp; TypeScript | Python | Microsoft Azure &amp; Azure AI Foundry | Power BI", subhead_style))
 story.append(Paragraph("Lahore, Pakistan &nbsp;|&nbsp; +92 315 4486062 &nbsp;|&nbsp; a.siddiqua.nadeem@gmail.com &nbsp;|&nbsp; github.com/ayeshanadeem45", contact_style))
 
 # ─── 2. PROFESSIONAL SUMMARY ───
 add_section("Professional Summary")
 summary_p = (
-    "Dedicated <b>Frontend Developer</b> with solid full-stack engineering and business intelligence expertise, specializing in "
-    "developing responsive web applications and interactive analytics using <b>React, TypeScript, Python</b>, and <b>Power BI</b>. "
-    "Experienced delivering 6 complete frontend-and-backend integrated production-grade projects during an internship at "
-    "<b>Systems Limited (CADM Department)</b>, alongside designing executive Power BI dashboards for business sales performance "
-    "and HR employee attrition analysis. Recognized for clean code, intuitive UI/UX design, data modeling, and robust API integration."
+    "Dedicated <b>Frontend Developer</b> with solid full-stack engineering, cloud deployment, and business intelligence expertise, "
+    "specializing in developing responsive web applications and interactive analytics using <b>React, TypeScript, Python, Microsoft Azure</b>, "
+    "and <b>Power BI</b>. Experienced delivering 6 complete frontend-and-backend integrated production-grade projects during an internship at "
+    "<b>Systems Limited (CADM Department)</b>, deploying frontend solutions to <b>Microsoft Azure</b>, utilizing <b>Azure AI Foundry</b>, "
+    "and designing executive Power BI dashboards for business sales performance and HR employee attrition analysis. Recognized for clean code, "
+    "intuitive UI/UX design, cloud deployment workflows, and robust API integration."
 )
 story.append(Paragraph(summary_p, body_style))
 
 # ─── 3. TECHNOLOGIES & SKILLS ───
 add_section("Technologies &amp; Skills")
 story.append(Paragraph("• <b>Frontend Engineering:</b> React, TypeScript, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, Shadcn/ui, Material UI, Component Architecture, Responsive Layouts", bullet_style))
+story.append(Paragraph("• <b>Cloud &amp; Azure:</b> Microsoft Azure, Azure AI Foundry, Azure App Service, Cloud Frontend Deployment, Azure Static Web Apps", bullet_style))
 story.append(Paragraph("• <b>Backend &amp; APIs:</b> Python, RESTful API Development, FastAPI, Flask, Backend Service Integration, JSON Pipelines", bullet_style))
 story.append(Paragraph("• <b>Business Intelligence &amp; Data Analytics:</b> Power BI, DAX, Data Modeling, KPI Dashboards, Sales &amp; Attrition Analytics, Data Visualization", bullet_style))
-story.append(Paragraph("• <b>AI &amp; Models Integration:</b> OpenAI API, Decision Models (Decision 1), Conversational UI, Real-Time Model Comparison", bullet_style))
+story.append(Paragraph("• <b>AI &amp; Models Integration:</b> Azure AI Foundry, OpenAI API, Decision Models (Decision 1), Conversational UI, Real-Time Model Comparison", bullet_style))
 story.append(Paragraph("• <b>Developer Tools &amp; Methodologies:</b> Git, GitHub, VS Code, Vite, npm, Postman, Agile/Scrum Development", bullet_style))
 story.append(Paragraph("• <b>Programming Languages:</b> Python, TypeScript, JavaScript, DAX", bullet_style))
 
@@ -203,6 +205,8 @@ story.append(Paragraph("Frontend Developer", role_style))
 story.append(Paragraph("Jul 2026 – Oct 2026", date_style))
 story.append(Paragraph("Responsibilities:", sub_label_style))
 story.append(Paragraph("• Architected, developed, and deployed the complete frontend interfaces for 6 enterprise and client-facing full-stack applications in the CADM Department.", bullet_style))
+story.append(Paragraph("• Configured and managed cloud deployments for frontend applications on <b>Microsoft Azure</b> (Azure App Service / Static Web Apps), ensuring high availability and seamless CI/CD delivery.", bullet_style))
+story.append(Paragraph("• Leveraged <b>Azure AI Foundry</b> for AI-driven application modules, integrating decision models and intelligent conversational features with responsive React interfaces.", bullet_style))
 story.append(Paragraph("• Integrated dynamic React and TypeScript frontend modules with backend Python services and RESTful APIs, ensuring seamless data flow and zero-lag user interaction.", bullet_style))
 story.append(Paragraph("• Built robust, reusable design systems utilizing Tailwind CSS, Shadcn/ui, and Material UI, standardizing visual aesthetics across enterprise projects.", bullet_style))
 story.append(Paragraph("• Conducted UI testing, optimized rendering performance, and participated in Agile sprint planning and collaborative peer code reviews.", bullet_style))
