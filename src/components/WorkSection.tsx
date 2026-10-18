@@ -37,6 +37,18 @@ const projects = [
     desc: 'Analytics dashboard tracking VS Code extension usage metrics — active users, token consumption, session data, and trend visualization.',
     tech: ['React', 'TypeScript', 'Recharts', 'Shadcn/ui'],
   },
+  {
+    name: 'Sales Performance Dashboard',
+    tag: 'Business Intelligence · Analytics',
+    desc: 'Power BI executive dashboard analyzing revenue growth, regional sales distribution, profit margins, and dynamic product-level sales forecasting.',
+    tech: ['Power BI', 'DAX', 'Data Modeling', 'KPI Visuals'],
+  },
+  {
+    name: 'Employee Attrition Dashboard',
+    tag: 'HR Analytics · Power BI',
+    desc: 'Comprehensive HR intelligence dashboard identifying turnover trends, retention risk factors, departmental attrition rates, and demographic breakdowns.',
+    tech: ['Power BI', 'DAX', 'HR Analytics', 'Data Viz'],
+  },
 ]
 
 export default function WorkSection() {

@@ -171,18 +171,17 @@ def add_section(title):
 
 # ─── 1. CENTERED HEADER ───
 story.append(Paragraph("Ayesha Siddiqua", name_style))
-story.append(Paragraph("Frontend Developer | React &amp; TypeScript | Full Stack Integration | Python", subhead_style))
+story.append(Paragraph("Frontend Developer | React &amp; TypeScript | Python | Business Intelligence (Power BI)", subhead_style))
 story.append(Paragraph("Lahore, Pakistan &nbsp;|&nbsp; +92 315 4486062 &nbsp;|&nbsp; a.siddiqua.nadeem@gmail.com &nbsp;|&nbsp; github.com/ayeshanadeem45", contact_style))
 
 # ─── 2. PROFESSIONAL SUMMARY ───
 add_section("Professional Summary")
 summary_p = (
-    "Dedicated <b>Frontend Developer</b> with solid full-stack engineering expertise, specializing in developing responsive, "
-    "pixel-perfect web applications using <b>React, TypeScript, Python</b>, and modern styling architectures including "
-    "<b>Tailwind CSS, Shadcn/ui</b>, and <b>Material UI</b>. Experienced delivering 6 complete frontend-and-backend integrated "
-    "production-grade projects during an internship at <b>Systems Limited (CADM Department)</b>, including business automation platforms, "
-    "conversational AI shopping assistants, multi-model decision games, and extension analytics dashboards. Recognized for clean code, "
-    "seamless API integration, and strong attention to UX and performance."
+    "Dedicated <b>Frontend Developer</b> with solid full-stack engineering and business intelligence expertise, specializing in "
+    "developing responsive web applications and interactive analytics using <b>React, TypeScript, Python</b>, and <b>Power BI</b>. "
+    "Experienced delivering 6 complete frontend-and-backend integrated production-grade projects during an internship at "
+    "<b>Systems Limited (CADM Department)</b>, alongside designing executive Power BI dashboards for business sales performance "
+    "and HR employee attrition analysis. Recognized for clean code, intuitive UI/UX design, data modeling, and robust API integration."
 )
 story.append(Paragraph(summary_p, body_style))
 
@@ -190,9 +189,10 @@ story.append(Paragraph(summary_p, body_style))
 add_section("Technologies &amp; Skills")
 story.append(Paragraph("• <b>Frontend Engineering:</b> React, TypeScript, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, Shadcn/ui, Material UI, Component Architecture, Responsive Layouts", bullet_style))
 story.append(Paragraph("• <b>Backend &amp; APIs:</b> Python, RESTful API Development, FastAPI, Flask, Backend Service Integration, JSON Pipelines", bullet_style))
+story.append(Paragraph("• <b>Business Intelligence &amp; Data Analytics:</b> Power BI, DAX, Data Modeling, KPI Dashboards, Sales &amp; Attrition Analytics, Data Visualization", bullet_style))
 story.append(Paragraph("• <b>AI &amp; Models Integration:</b> OpenAI API, Decision Models (Decision 1), Conversational UI, Real-Time Model Comparison", bullet_style))
 story.append(Paragraph("• <b>Developer Tools &amp; Methodologies:</b> Git, GitHub, VS Code, Vite, npm, Postman, Agile/Scrum Development", bullet_style))
-story.append(Paragraph("• <b>Programming Languages:</b> Python, TypeScript, JavaScript", bullet_style))
+story.append(Paragraph("• <b>Programming Languages:</b> Python, TypeScript, JavaScript, DAX", bullet_style))
 
 # ─── 4. PROFESSIONAL EXPERIENCE ───
 add_section("Professional Experience")
@@ -218,6 +218,16 @@ story.append(Paragraph("• Collaborated with senior teams on data maintenance, 
 
 # ─── 5. KEY PROJECTS ───
 add_section("Key Projects")
+
+# Power BI Sales Dashboard
+story.append(Paragraph("Business Sales Performance Dashboard (Power BI)", project_title_style))
+story.append(Paragraph("• Designed an interactive executive Power BI dashboard analyzing revenue trends, profit margins, sales growth by region, and product-level performance metrics.", bullet_style))
+story.append(Paragraph("• Built complex DAX measures and custom data models to provide actionable insights for sales forecasting, channel distribution, and quarterly variance analysis.", bullet_style))
+
+# Power BI Attrition Dashboard
+story.append(Paragraph("Employee Attrition &amp; HR Analytics Dashboard (Power BI)", project_title_style))
+story.append(Paragraph("• Developed a comprehensive HR intelligence dashboard to monitor workforce attrition rates, turnover factors, tenure distribution, and department-level retention risks.", bullet_style))
+story.append(Paragraph("• Implemented dynamic drill-through filters and demographic breakdowns helping management uncover key drivers of employee turnover.", bullet_style))
 
 # CSuite
 story.append(Paragraph("CSuite – Automated Workflow Platform", project_title_style))

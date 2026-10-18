@@ -3,6 +3,7 @@ import './Sections.css'
 const skills = {
   Frontend: ['React', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Shadcn/ui', 'Material UI', 'CSS / SCSS'],
   Backend:  ['Python', 'REST APIs', 'FastAPI / Flask', 'Database Integration'],
+  'BI & Analytics': ['Power BI', 'DAX', 'Data Modeling', 'Interactive Dashboards', 'KPI Analytics'],
   Tools:    ['Git', 'GitHub', 'Figma', 'VS Code', 'Agile / Scrum'],
 }
 
