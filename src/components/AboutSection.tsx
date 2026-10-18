@@ -8,7 +8,7 @@ const skills = {
 
 const experience = [
   {
-    role: 'Frontend & Full Stack Developer',
+    role: 'Frontend Developer',
     org: 'Systems Limited',
     dept: 'CADM Department',
     period: 'Jul 2026 – Oct 2026 · 4 months',
