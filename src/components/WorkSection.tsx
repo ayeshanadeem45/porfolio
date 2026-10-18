@@ -17,7 +17,7 @@ const projects = [
     name: 'Decision Models Game',
     tag: 'AI · Gaming',
     desc: 'Full-stack competitive game featuring OpenAI, JEV, Decision 1, and Microsoft decision models powered by TypeSafe AI playing autonomously instead of humans. Real-time game state, round simulations, and scoring analytics.',
-    tech: ['React', 'TypeScript', 'TypeSafe AI', 'JEV', 'Decision 1', 'OpenAI'],
+    tech: ['React', 'Python', 'SQLite', 'TypeSafe AI', 'JEV', 'Decision 1'],
   },
   {
     name: 'Agentic XP',

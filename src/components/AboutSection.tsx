@@ -2,7 +2,7 @@ import './Sections.css'
 
 const skills = {
   Frontend: ['React', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Shadcn/ui', 'Material UI', 'CSS / SCSS'],
-  Backend:  ['Python', 'REST APIs', 'FastAPI / Flask', 'Database Integration'],
+  Backend:  ['Python', 'REST APIs', 'FastAPI / Flask', 'SQLite', 'Database Integration'],
   'Cloud & AI': ['Microsoft Azure', 'Azure AI Foundry', 'Azure App Service', 'Cloud Deployment'],
   'BI & Analytics': ['Power BI', 'DAX', 'Data Modeling', 'Interactive Dashboards', 'KPI Analytics'],
   Tools:    ['Git', 'GitHub', 'Figma', 'VS Code', 'Agile / Scrum'],

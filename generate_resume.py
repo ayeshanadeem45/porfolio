@@ -245,8 +245,8 @@ story.append(Paragraph("• Designed an intuitive chat-first interface featuring
 
 # Decision Models Game
 story.append(Paragraph("AI Decision Models Game (OpenAI, JEV &amp; Decision 1)", project_title_style))
-story.append(Paragraph("• Built a full-stack competitive gaming platform where autonomous AI decision models (OpenAI, JEV, Decision 1, and Microsoft decision models) powered by <b>TypeSafe AI</b> compete instead of humans.", bullet_style))
-story.append(Paragraph("• Engineered the backend simulation engine, round evaluation algorithms, and real-time frontend visualization demonstrating game state, scoring mechanics, and winner analytics.", bullet_style))
+story.append(Paragraph("• Built a full-stack competitive gaming platform using <b>React, Python, and SQLite</b> where autonomous AI decision models (OpenAI, JEV, Decision 1, and Microsoft decision models) powered by <b>TypeSafe AI</b> compete instead of humans.", bullet_style))
+story.append(Paragraph("• Engineered the Python backend simulation engine, SQLite match tracking, and real-time React visualization demonstrating game state, scoring mechanics, and winner analytics.", bullet_style))
 
 # ZooCode Dashboard
 story.append(Paragraph("ZooCode Extension Analytics Dashboard", project_title_style))
